@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "module": "es2015",
+        "noImplicitAny": true, //在表达式和声明上有隐含的 any类型时报错。
+        "sourceMap": false, //生成相应的 .map文件。
+        "target": "es5", //
+        "strictNullChecks": true,
+        /*
+        在严格的 null检查模式下， null和 undefined值不包含在任何类型里，只允许用它们自己和 any来赋值（有个例外， undefined可以赋值到 void）。
+        */
+        "noUnusedLocals": false,//若有未使用的局部变量则抛错。
+        "noUnusedParameters": false,//若有未使用的参数则抛错。
+        "inlineSources": false,
+        //将代码与sourcemaps生成到一个文件中，要求同时设置了 --inlineSourceMap或 --sourceMap属性。
+        "jsx": "react",
+        "experimentalDecorators": true // 开启实验性质
+    },
+    "exclude": [
+        "node_modules",
+    ]
+}
