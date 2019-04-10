@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.bootcss.com/Swiper/4.5.0/css/swiper.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/Swiper/4.5.0/js/swiper.min.js"></script>
+    <style>
+        .swiper-container {
+        }
+        .swiper-pagination-bullet{
+            background: #000;
+            opacity: 0.2;
+        }
+        .swiper-pagination-bullet-active{
+            background-color: rgb(255, 0, 0);
+        }
+        .imgitem{
+            width: 100%;
+        }
+        .imgbox{
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" id="a1">
+                    <a class="imgbox" href="#">
+                        <img class="imgitem" src="https://sf6-ttcdn-tos.pstatp.com/obj/dump-v2-public/2019/04/08/2a2caf11438f9d3a00fd946c14e592db.png" alt="">
+                    </a>
+                </div>
+                <div class="swiper-slide" id="a2">
+                    <a class="imgbox" href="#">
+                        <img class="imgitem" src="https://sf3-ttcdn-tos.pstatp.com/obj/dump-v2-public/2019/04/10/b9d6a8cc194182175941e6575de5b312.png" alt="">
+                    </a>
+                </div>
+                <div class="swiper-slide" id="a3">
+                    <a class="imgbox" href="#">
+                        <img class="imgitem" src="https://sf1-ttcdn-tos.pstatp.com/obj/dump-v2-public/2019/03/28/d382a2c84f998bb63dbde4ba1f5592dd.png" alt="">
+                    </a>
+                </div>
+                <div class="swiper-slide" id="a4">
+                    <a class="imgbox" href="#">
+                        <img class="imgitem" src="https://sf1-ttcdn-tos.pstatp.com/obj/dump-v2-public/2018/9/25/1dd7c7ce75c52244ca754b62f0475963.png" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <script>        
+            var mySwiper = new Swiper ('.swiper-container', {
+                direction: 'horizontal',
+                loop:'ture',
+                autoplay: {
+                    delay: 2500,
+                    stopOnLastSlide: false,//如果设置为true，当切换到最后一个slide时停止自动切换。（loop模式下无效）。
+                    disableOnInteraction: false,//用户触发后，不停止自动滚动。
+                },
+                // 分页器
+                pagination:{
+                    el: '.swiper-pagination',
+                }
+            })        
+        </script>
+</body>
+</html>

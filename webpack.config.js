@@ -1,14 +1,16 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+//解析公共css
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.tsx",
+  entry: "./src/indexPage/index.tsx",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "index.bundle.js"
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".json"]
+    extensions: [".ts", ".tsx", ".js", ".json",".css"]
   },
   module: {
     rules: [
@@ -32,19 +34,29 @@ module.exports = {
             plugins:['@babel/plugin-proposal-object-rest-spread',"@babel/plugin-proposal-class-properties"]
           }
         }
-      }
+      },
+      {
+        test: /\.css$/,
+        include: path.resolve(__dirname, "src/indexPage"),
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: ["css-loader","postcss-loader"]
+        })
+      },
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       filename: path.resolve(__dirname, "dist/index.html"),
-      template: "./src/index.html",
+      template: "./src/indexPage/index.html",
       inject: false
-    })
+    }),
+    new ExtractTextPlugin("css/index.css")
   ],
   devServer: {
     contentBase: path.join(__dirname, "dist"),
     compress: true,
-    port: 3000
+    port: 80,
+    host: "0.0.0.0"
   }
 };

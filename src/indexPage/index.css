@@ -1,0 +1,30 @@
+*{
+    margin:0;
+    padding: 0;
+}
+html{
+    overflow: hidden scroll;
+}
+html::-webkit-scrollbar {
+    display: none;
+}
+body{
+    font-family: arial, helvetica, sans-serif, "Microsoft Yahei";
+    text-size-adjust:none;
+    user-select:none 
+}
+
+.swiper-pagination-bullet{
+    background: #000;
+    opacity: 0.2;
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+}
+.swiper-pagination-bullet-active{
+    background-color: #f85959;
+    opacity: 1;
+}
+.swiper-pagination-bullets {
+    bottom: .6rem!important;
+}
