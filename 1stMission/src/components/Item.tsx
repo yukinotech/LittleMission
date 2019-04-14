@@ -58,15 +58,59 @@ let Name = styled.div`
 interface P{
     name:string;
     iconSrc:string;
+    isPC:boolean;
 }
 
 export default class Item extends React.Component<P>{
     constructor(props:Readonly<P>){
         super(props)
+        this.haddleMouseDown=this.haddleMouseDown.bind(this)
+        this.haddleMouseUp=this.haddleMouseUp.bind(this)
+        this.haddleTouchStart=this.haddleTouchStart.bind(this)
+        this.haddleTouchEnd=this.haddleTouchEnd.bind(this)
+        this.haddleClick=this.haddleClick.bind(this)
+    }
+    haddleMouseDown (e:any){
+        e.currentTarget.style.backgroundColor="rgb(244, 245, 246)"
+        console.log('haddleonMouseDown')
+    }
+    haddleMouseUp(e:any){
+        e.currentTarget.style.backgroundColor="rgb(255, 255, 255)"
+        console.log('haddleMouseUp')
+    }
+    haddleTouchStart(e:any){
+        e.currentTarget.style.backgroundColor="rgb(244, 245, 246)"
+        console.log('haddleTouchStart')
+        console.log(Date.now())
+    }
+    haddleTouchMove(e:any){
+        e.currentTarget.style.backgroundColor="rgb(255, 255, 255)"
+    }
+    haddleTouchEnd(e:any){
+        e.currentTarget.style.backgroundColor="rgb(255, 255, 255)"
+        console.log('haddleTouchEnd')
+    }
+    haddleClick(){
+        console.log('click')
+        console.log(Date.now())
     }
     render(){
+        let mobileEvents={
+            onTouchEnd:this.haddleTouchEnd,
+            onTouchStart:this.haddleTouchStart,
+            onClick:this.haddleClick,
+            onTouchMove:this.haddleTouchMove
+        }
+        let pcEvents={
+            onMouseDown:this.haddleMouseDown,
+            onMouseUp:this.haddleMouseUp,
+            onClick:this.haddleClick
+        }
+        let events=this.props.isPC?pcEvents:mobileEvents
         return(
-            <ItemFatherBox>
+            <ItemFatherBox 
+                {...events}
+            >
                 <ItemSonBox>
                     <IconDiv>
                         <StyledIcon iconSrc={this.props.iconSrc}/>
@@ -77,3 +121,4 @@ export default class Item extends React.Component<P>{
         )
     }
 }
+

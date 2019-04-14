@@ -89,7 +89,7 @@ export default class WalletService extends React.Component<any,S>{
         let itemlist=this.state.data.map(
             (item)=>{
                 return (
-                    <Item key={item.iconSrc} {...item}/>
+                    <Item key={item.iconSrc} isPC={this.props.isPC} {...item}/>
                 )
             }
         )

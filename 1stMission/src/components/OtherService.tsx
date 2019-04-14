@@ -26,6 +26,7 @@ interface S{
         name:string;
         iconSrc:string;
     }[]
+    isPC:boolean;
 }
 
 
@@ -59,13 +60,14 @@ export default class OtherService extends React.Component<any,S>{
             ]
         }
         this.setState({...iteminfo})
+
         console.log(this.state)
     }
     render(){
         let itemlist=this.state.data.map(
             (item)=>{
                 return (
-                    <Item key={item.iconSrc} {...item}/>
+                    <Item key={item.iconSrc} isPC={this.props.isPC} {...item}/>
                 )
             }
         )
