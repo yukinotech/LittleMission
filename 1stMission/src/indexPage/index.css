@@ -4,6 +4,7 @@
 }
 html{
     overflow: hidden scroll;
+    user-select:none;
 }
 html::-webkit-scrollbar {
     display: none;

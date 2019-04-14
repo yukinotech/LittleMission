@@ -56,10 +56,26 @@ Service模块内部使用flex布局，每个item有自己的border划线，通�
 #### 移动端兼容性，优化方面
 
 1.使用`user-scalable=no`禁止了用户缩放，同时也禁止了移动端300ms的等待时间。
-经过测试确实没有300ms延迟，但是是不是`user-scalable=no`字段的作用有待考证。
+经过测试确实没有300ms延迟，but是不是`user-scalable=no`字段的作用有待考证。
 
 2.`viewport-fit=cover`是为刘海屏设计的viewport字段，可以使页面充满刘海屏。
 
+3.index.css使用postcss插件增加浏览器前缀进行兼容
+
+4.styled-component也自带浏览器前缀兼容
+
+5.禁止复制、选中文本
+```html
+html{
+    -webkit-user-select:none;
+
+    -moz-user-select:none;
+
+    -khtml-user-select:none;
+
+    user-select:none;
+}
+```
 可能有未考虑到的，待补全
 
 
