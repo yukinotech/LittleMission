@@ -8,4 +8,4 @@
 
 ## 目录
 
- - [任务1：头条小钱包实现](./1stMission/README.md)
+ - [任务1：头条小钱包实现](./1stMission)
